@@ -1,6 +1,7 @@
 import socket
 import threading
 import sys
+import os
 
 
 class Server:
@@ -44,6 +45,10 @@ class Client:
     def __init__(self, address):
         self.sock.connect((address, 10000))
         self.client_name = input("What is your name: ")
+        if sys.platform == 'linux':
+            os.system('clear')
+        elif sys.platform == 'win32' or 'cygwin':
+            os.system('cls')
 
         i_thread = threading.Thread(target=self.send_msg)
         i_thread.daemon = True
