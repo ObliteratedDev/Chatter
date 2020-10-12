@@ -1,3 +1,3 @@
 # Chatter
 
-Version : 0.1 Pre-alpha
+Version: 0.1 Pre-alpha
