@@ -25,6 +25,10 @@ class Server:
                 break
 
     def run(self):
+        if sys.platform == 'linux':
+            os.system('clear')
+        elif sys.platform == 'win32' or 'cygwin':
+            os.system('cls')
         print("Server started successfully\n")
         while True:
             c, a = self.sock.accept()
