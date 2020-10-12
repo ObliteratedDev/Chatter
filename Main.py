@@ -39,10 +39,11 @@ class Client:
 
     def send_msg(self):
         while True:
-            self.sock.send(bytes(input(""), 'utf-8'))
+            self.sock.send(bytes(self.client_name + ' sent a message: ' + input(""), 'utf-8'))
 
     def __init__(self, address):
         self.sock.connect((address, 10000))
+        self.client_name = input("What is your name: ")
 
         i_thread = threading.Thread(target=self.send_msg)
         i_thread.daemon = True
